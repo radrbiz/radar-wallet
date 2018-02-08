@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/app">
+        <file>img/account-switch.png</file>
+        <file>img/copy.png</file>
+        <file>img/ico_addressBook.png</file>
+        <file>img/logo.png</file>
+        <file>img/refresh.png</file>
+        <file>img/send-o.png</file>
+        <file>img/register.png</file>
+    </qresource>
+</RCC>
