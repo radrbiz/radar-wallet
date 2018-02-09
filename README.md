@@ -10,7 +10,7 @@ Openssl 1.0.x is needed to support wallet data encryption. You need to install i
 
 Use Qt Creator to open `RadarWallet.pro`, and run build.
 
-A command line tool `rda_tool` is used to generate address and sign transactions, you can find it in this project - [radrbiz/rda_tool](https://github.com/radrbiz/rda_tool). Copy this tool to the same path of the executable binary - RadarTool.
+A command line tool `radar-tool` is used to generate address and sign transactions, you can find it in this project - [radrbiz/radar-tool](https://github.com/radrbiz/radar-tool). Copy this tool to the same path of the executable binary - RadarTool.
 
 That's all. Enjoy using it.
 
