@@ -8,9 +8,9 @@ Radar Wallet uses Qt5 to implement its GUI interface. To build it, you need late
 
 Openssl 1.0.x is needed to support wallet data encryption. You need to install it by yourself. We offer a prebuild Windows version of openssl in this repository, which is compiled by Visual Studio 2017. You can use your own build if you want.
 
-Use Qt Creator to open `RadarWallet.pro`, and run build.
+Use Qt Creator to open `RadarWallet.pro`, and run build.
 
-A command line tool `radar-tool` is used to generate address and sign transactions, you can find it in this project - [radrbiz/radar-tool](https://github.com/radrbiz/radar-tool). Copy this tool to the same path of the executable binary - RadarTool.
+A command line tool `radar-tool` is used to generate address and sign transactions, you can find it in this project - [radrbiz/radar-tool](https://github.com/radrbiz/radar-tool). Copy this tool to the same path of the executable binary - RadarWallet.
 
 That's all. Enjoy using it.
 
