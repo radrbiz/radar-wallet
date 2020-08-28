@@ -83,7 +83,7 @@ uint64_t RadarHttpClient::FetchAccountTxSeqSync(const std::string &account)
 uint64_t RadarHttpClient::FetchLastValidateLedgerSync()
 {
     json req = R"({
-        "method" : "server_state"
+        "method" : "server_info"
     })"_json;
     QNetworkReply *r = PostToRadardSync(req.dump());
     if (r->error() != QNetworkReply::NoError) {
@@ -98,14 +98,14 @@ uint64_t RadarHttpClient::FetchLastValidateLedgerSync()
             Logger::Error() << "FetchLastValidateLedgerSync return error." << std::endl;
             return 0;
         }
-        if (j["result"].find("state") == j["result"].end()
-                || j["result"]["state"].find("validated_ledger") == j["result"]["state"].end()
-                || j["result"]["state"]["validated_ledger"].find("seq") == j["result"]["state"]["validated_ledger"].end()
-                || !j["result"]["state"]["validated_ledger"]["seq"].is_number()) {
+        if (j["result"].find("info") == j["result"].end()
+                || j["result"]["info"].find("validated_ledger") == j["result"]["info"].end()
+                || j["result"]["info"]["validated_ledger"].find("seq") == j["result"]["info"]["validated_ledger"].end()
+                || !j["result"]["info"]["validated_ledger"]["seq"].is_number()) {
             Logger::Error() << "FetchAccountTxSeqSync field not found." << std::endl;
             return 0;
         }
-        uint64_t seq = j["result"]["state"]["validated_ledger"]["seq"].get<uint64_t>();
+        uint64_t seq = j["result"]["info"]["validated_ledger"]["seq"].get<uint64_t>();
         return seq;
     } catch (...) {
         Logger::Error() << "FetchAccountTxSeqSync parse return json error." << std::endl;

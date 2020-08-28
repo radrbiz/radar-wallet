@@ -46,7 +46,7 @@ win32 {
 }
 
 unix {
-    INCLUDEPATH += "/usr/local/include" "/usr/local/ssl/include"
+    INCLUDEPATH += "/usr/local/include" "/usr/local/ssl/include" "/usr/local/opt/openssl/include"
     LIBS += -L"/usr/local/lib" -L"/usr/local/ssl/lib" -lssl -lcrypto
 }
 

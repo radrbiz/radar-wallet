@@ -43,6 +43,7 @@ std::pair<std::string, std::string> RadarTool::KeyGenerate(const std::string &se
     if (seed != "") {
         arguments.append(seed.c_str());
     }
+    Logger::Info() << "tool_path:" << tool_path.toStdString() << std::endl;
     QProcess process;
     process.start(tool_path, arguments);
     process.waitForStarted();

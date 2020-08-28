@@ -35,9 +35,9 @@ Config::Config()
     DATA_FILE_NAME = "wallet.json";
     ADDRESS_BOOK_FILE_NAME = "address_book.json";
 
-    SERVER_SCHEME = "http";
-    SERVER_HOST = "s1.radarlab.org";
-    SERVER_PORT = 5005;
+    SERVER_SCHEME = "https";
+    SERVER_HOST = "s3.radarlab.org";
+    SERVER_PORT = 443;
 
     PASSWORD_LIFE = 300;
     PASSWORD_LEN_MIN = 6;
