@@ -43,7 +43,7 @@ public:
     std::pair<std::string, std::string> TxSign(const std::string &pri_key, const std::string &tx);
 
     void FetchAccountBalances(const std::string &account);
-    void Transfer(const std::string &sign_key, const std::string &from, const std::string &to, uint64_t amount, const std::string &asset);
+    void Transfer(const std::string &sign_key, const std::string &from, const std::string &to, uint64_t amount, const std::string &asset, int destination_tag = -1);
 
 signals:
     void DataUpdated();

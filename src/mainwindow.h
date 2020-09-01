@@ -61,6 +61,8 @@ private slots:
 
     void on_actionOpen_triggered();
 
+    void on_checkBoxDestinationTag_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     bool QueryPassword(bool new_pass = false);

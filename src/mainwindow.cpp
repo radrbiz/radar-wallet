@@ -33,6 +33,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include <QValidator>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -55,6 +56,9 @@ void MainWindow::UpdateUI()
     ui->labelCurrentAddressValue->setText(acc.pub_key.c_str());
     ui->labelVBCValue->setText(acc.BalancesString("VBC").c_str());
     ui->labelVRPValue->setText(acc.BalancesString("VRP").c_str());
+
+    ui->lineEditDestinationTag->setValidator(new QIntValidator (0, 1000000000, this));
+    ui->lineEditDestinationTag->setEnabled(ui->checkBoxDestinationTag->isChecked());
 }
 
 void MainWindow::on_toolButtonAddressCopy_clicked()
@@ -114,7 +118,18 @@ void MainWindow::on_pushButtonSend_clicked()
             RadarDelegate::Instance().FetchAccountBalances(Wallet::Instance().CurrentAccount().pub_key);
         }
     });
-    RadarDelegate::Instance().Transfer(acc.GetPrivateKey(wallet.GetPassword()), acc.pub_key, address, amount, asset);
+    int des_tag = -1;
+    if (ui->checkBoxDestinationTag->isChecked()) {
+        auto text = ui->lineEditDestinationTag->text();
+        if (text.length() > 0) {
+            bool ok;
+            int num = text.toInt(&ok);
+            if (ok) {
+                des_tag = num;
+            }
+        }
+    }
+    RadarDelegate::Instance().Transfer(acc.GetPrivateKey(wallet.GetPassword()), acc.pub_key, address, amount, asset, des_tag);
     ui->lineEditSendToAddress->setText("");
     ui->doubleSpinBoxSendValue->setValue(0);
 }
@@ -218,4 +233,9 @@ void MainWindow::on_actionOpen_triggered()
         }
     }
 
+}
+
+void MainWindow::on_checkBoxDestinationTag_stateChanged(int arg1)
+{
+    ui->lineEditDestinationTag->setEnabled(ui->checkBoxDestinationTag->isChecked());
 }

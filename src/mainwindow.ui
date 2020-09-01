@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>641</width>
-    <height>449</height>
+    <width>642</width>
+    <height>479</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -211,7 +211,7 @@
       <x>30</x>
       <y>240</y>
       <width>581</width>
-      <height>151</height>
+      <height>191</height>
      </rect>
     </property>
     <property name="title">
@@ -378,6 +378,45 @@
       </item>
      </layout>
     </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>297</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>DestinationTag:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditDestinationTag">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maxLength">
+         <number>9</number>
+        </property>
+        <property name="placeholderText">
+         <string>0-999999999</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBoxDestinationTag">
+        <property name="text">
+         <string>Enable</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -425,7 +464,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
+     <width>642</width>
      <height>22</height>
     </rect>
    </property>

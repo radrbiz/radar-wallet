@@ -72,7 +72,7 @@ void RadarDelegate::FetchAccountBalances(const std::string &account)
     client.FetchAccountBalances(account);
 }
 
-void RadarDelegate::Transfer(const std::string &sign_key, const std::string &from, const std::string &to, uint64_t amount, const std::string &asset)
+void RadarDelegate::Transfer(const std::string &sign_key, const std::string &from, const std::string &to, uint64_t amount, const std::string &asset, int destination_tag)
 {
     auto &client = RadarHttpClient::Instance();
     // fetch seq
@@ -119,6 +119,10 @@ void RadarDelegate::Transfer(const std::string &sign_key, const std::string &fro
     }
     tx["Destination"] = to;
     tx["Sequence"] = seq;
+    // set DestinationTag if enabled
+    if (destination_tag >= 0 && destination_tag < 1000000000) {
+        tx["DestinationTag"] = destination_tag;
+    }
     tx["LastLedgerSequence"] = last_ledger;
     tx["Flags"] = 2147483648;
     tx["Fee"] = std::to_string(fee);
