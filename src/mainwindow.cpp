@@ -224,7 +224,7 @@ void MainWindow::on_actionOpen_triggered()
     QString default_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QString load_path = QFileDialog::getOpenFileName(this, "Import waller from file", default_path, "Radar Wallet File (*.json)");
     if (!load_path.isNull()) {
-        if (!Wallet::Instance().Load(load_path.toStdString())) {
+        if (!Wallet::Instance().Load(load_path.toStdString(), true)) {
             QMessageBox::warning(this, "Alert", "Wallet file import fail, check if your file is valid format.", QMessageBox::Close);
         } else {
             Wallet::Instance().Save();

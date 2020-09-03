@@ -87,7 +87,7 @@
     <item>
      <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>Copyright (c) 2015-2018 Radar Laboratory</string>
+       <string>Copyright (c) 2015-2020 Radar Laboratory</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

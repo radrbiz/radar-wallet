@@ -27,7 +27,7 @@ using json = nlohmann::json;
 
 Config::Config()
 {
-    APP_VERSION = 1000;
+    APP_VERSION = 1010;
     WALLET_VERSION = 1000;
     ACCOUNT_VERSION = 1000;
 
